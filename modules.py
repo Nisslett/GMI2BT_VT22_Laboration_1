@@ -10,9 +10,15 @@
 #med i en lista mellan 1 och 1000, denna lista ska returneras
 
 def list_maker(div_num1:int, div_num2:int)->list[int]:
+    #får se vad du tycker om detta Edvin?
+    #if type(div_num1) != int or type(div_num1) != int:
+    #    raise ValueError
+    #end
     numbers = []
     for num in range(1, 1001):
         if (num/div_num1).is_integer() and (num/div_num2).is_integer():
+        #detta är en alterativ if satts
+        #if num%div_num1==0 and num%div_num2==0:
             numbers.append(num)
     return numbers
 
@@ -36,7 +42,7 @@ def input_int(inputtext:str,errortext:str="Not a integer, try again!")-> int:
 #from random import randint
 #säg åt andvändaren om gissningen är för stor eller förliten
 
-def guess_a_number(upper_limit=100,lower_limit=1)-> None:
+def guess_a_number(upper_limit:int=100,lower_limit:int=1)-> None:
     from random import randint
     correct=randint(lower_limit,upper_limit)
     while True:
