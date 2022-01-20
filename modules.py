@@ -12,9 +12,13 @@ def choose_your_own_numbers()->None:
     rangemin=input_int("Value 1:")
     rangemax=input_int("Value 2:")
     if(rangemax<rangemin):
-        tmp=rangemax
-        rangemax=rangemin
-        rangemin=tmp
+        #tmp=rangemax
+        #rangemax=rangemin
+        #rangemin=tmp
+        #Detta är gör det samma som ovan, källor:
+        # https://www.geeksforgeeks.org/python-program-to-swap-two-variables/
+        # https://www.programiz.com/python-programming/examples/swap-variables
+        rangemax , rangemin = rangemin , rangemax
     anumber=input_int("Divisible number 1:")
     bnumber=input_int("Divisible number 2:")
     print(list_maker(anumber,bnumber,rangemin,rangemax))  
