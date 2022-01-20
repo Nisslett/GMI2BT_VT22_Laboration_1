@@ -1,8 +1,10 @@
+#this makes git ignoreall folders and directories
 *
+#the following whilelists things to NOT ignore
 !lab1/
 !lab2/
-
+#make sure tht .gitignore file is not ignored
 !.gitignore
-
+#file types
 !*.py
 !*.csv

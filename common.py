@@ -1,4 +1,4 @@
-#tänkte denna fil kan innehålla metoder/funktioner som alla filer kan använda
+#Tänkte att denna fil kan innehålla metoder/funktioner som alla filer kan använda
 
 def input_int(inputtext:str,errortext:str="Not an integer, try again!")-> int:
     """Returns a integer, This method propmts the user to input a integer,

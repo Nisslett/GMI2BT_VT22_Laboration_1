@@ -9,4 +9,10 @@ from menu import menu
 #log startade 20/1 2022 13:15 -> 14:00
 #delaktighet: ca 50% live share
 
+#Nils
+#log startade 20/1 2022 15:30 -> 15:50
+
+#Edvin
+
+
 menu()
