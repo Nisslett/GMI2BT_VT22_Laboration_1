@@ -1,12 +1,13 @@
 import modules
-#importera modules.py filen
-
-#anropa funktionera från modules.py
-
-#log startade 19/1 2022 09:00 -> 10:00
-#log startade 19/1 2022 13:10 -> 14:00
-#log startade 20/1 2022 13:15 -> 14:00
-#delaktighet: ca 50% live share
 
 def menu() -> None:
+    """Menu for Laboration 1"""
+    #en meny som användaren ska välja mellan 
+    #de två funktinoerna i labb 1
+    #gissnings leken och dividerabara nummer funktionen
+    #eller att eller att gå tillbaka.
+    #typ så här 
+    # 1.Divisable numbers
+    # 2.Number Guessing Game
+    # 3.Back / Return , or similar
     pass
