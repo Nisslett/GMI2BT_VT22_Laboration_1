@@ -13,7 +13,7 @@ def menu() -> None:
         print("4. Ta bort person")
         print("5. Spara fil")
         print("6. Återgå till huvudmeny")
-        menu_input=input_int_in_range("Välj ett meny alternativ:",1,3,errortext)
+        menu_input=input_int_in_range("Välj ett meny alternativ:",1,6,errortext)
         if menu_input == 1:
             pass
         elif menu_input == 2:
