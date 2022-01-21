@@ -29,6 +29,6 @@ def encapsulate(text:str,fill_char:str="-",linelength:int=60):
     fillspace:int=linelength-len(text)
     if fillspace<=0:
         return text
-    section:int=int(fillspace/2)
-    odd:int=fillspace%2
-    return section*fill_char+text+section*fill_char+fill_char*odd
+    fill_section:str=int(fillspace/2)*fill_char
+    odd_section:str=fillspace%2*fill_char
+    return fill_section+text+fill_section+odd_section
