@@ -13,10 +13,10 @@ def input_int(inputtext:str,errortext:str="Not an integer, try again!")-> int:
     return input_tmp
 
 def input_int_in_range(inputtext:str,min:int,max:int,errortext:str="Not an integer or not in range!")->int:
-    choice=0
+    choice:int=0
     while True:
-        input_int(inputtext,errortext)
-        if choice>max and choice<min:
+        choice=input_int(inputtext,errortext)
+        if choice>max or choice<min:
             print(errortext)
         else:
             break

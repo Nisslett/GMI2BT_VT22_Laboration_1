@@ -1,4 +1,4 @@
-import modules
+from lab1.modules import choose_your_own_divisiable_numbers,guess_a_number
 from common import input_int_in_range
 
 def menu() -> None:
@@ -20,12 +20,10 @@ def menu() -> None:
         print("3. Återgå till huvudmeny")
         menu_input=input_int_in_range("Välj ett meny alternativ:",1,3,errortext)
         if menu_input == 1:
-            lab1.modules.choose_your_own_numbers()
+            choose_your_own_divisiable_numbers()
             
         elif menu_input == 2:
-            lab1.modules.guess_a_number()
+            guess_a_number()
         
         elif menu_input == 3:
             break
-
-menu()

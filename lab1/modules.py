@@ -10,7 +10,7 @@ def list_maker(div_num1:int, div_num2:int,min:int=1,max:int=1001)->list[int]:
             numbers.append(num)
     return numbers
 
-def choose_your_own_numbers()->None:
+def choose_your_own_divisiable_numbers()->None:
     """This method prompts the user for specifications to find
     dvisiable numbers in a specifed number span"""
     print("Input your number span that you wish to search in by inputing two values.")
