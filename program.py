@@ -9,6 +9,7 @@ from menu import menu
 #log startade 20/1 2022 13:15 -> 14:00
 #log startade 21/1 2022 13:45 -> 16:20
 #log startade 23/1 2022 19:30 -> 22:00
+#log startade 24/1 2022 14:10 -> 15:00
 #delaktighet: ca 50% live share
 #Nils
 #log startade 20/1 2022 15:30 -> 15:50

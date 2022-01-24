@@ -23,7 +23,7 @@ def menu() -> None:
         print("1. Laboration 1")
         print("2. Laboration 2")
         print("3. Avsluta programmet\n")
-        menu_input=input_int_in_range("Välj ett meny alternativ:",1,3,errortext)
+        menu_input=input_int_in_range("Välj ett meny alternativ: ",1,3,errortext)
         if menu_input == 1:
             lab1_menu()
             

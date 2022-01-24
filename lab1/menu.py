@@ -18,7 +18,7 @@ def menu() -> None:
         print("1. Dividerbara nummer")
         print("2. Gissa numret!")
         print("3. Återgå till huvudmeny")
-        menu_input=input_int_in_range("Välj ett meny alternativ:",1,3,errortext)
+        menu_input=input_int_in_range("Välj ett meny alternativ: ",1,3,errortext)
         if menu_input == 1:
             choose_your_own_divisiable_numbers()
             

@@ -16,7 +16,7 @@ def menu() -> None:
         print("4. Ta bort person")
         print("5. Spara fil")
         print("6. Återgå till huvudmeny")
-        menu_input=input_int_in_range("Välj ett meny alternativ:",1,6,errortext)
+        menu_input=input_int_in_range("Välj ett meny alternativ: ",1,6,errortext)
         if menu_input == 1:
             klasslista=convert_file_to_list(filename)
         elif menu_input == 2:
@@ -36,3 +36,4 @@ def menu() -> None:
 # 3 läsa in från json
 # 4 alternativt sorta listan
 # 5 lägg till ett alternativ för att redigera en användare
+# 6 undermenyer för att bättre organisera alternativen
