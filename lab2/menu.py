@@ -1,36 +1,88 @@
-from common import input_int_in_range,encapsulate
-from lab2.modules import add_person_test, convert_file_to_list
+from common import input_int_in_range, encapsulate
+from lab2.modules import add_person_test, convert_file_to_list,search_person_list
 import json
+
 
 def menu() -> None:
     """Menu Laboration 2"""
-    filename="./lab2/labb2_personer_vt22.csv"
-    klasslista=[]
-    errortext="\nFelaktig inmatning, välj ett av ovanstående alternativ."
+    klasslista = []
+    errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
     while True:
         print(encapsulate(" Laboration 2 "))
         print("Välj ett av alternativen listade nedan.")
-        print("1. Läs in CSV-fil")
-        print("2. Visa JSON-data")
-        print("3. Lägg till person")
-        print("4. Ta bort person")
-        print("5. Spara fil")
-        print("6. Återgå till huvudmeny")
-        menu_input=input_int_in_range("Välj ett meny alternativ: ",1,6,errortext)
+        print("1. Läs in fil, meny")
+        print("2. Spara fil, meny")
+        print("3. Visa JSON-data")
+        print("4. Lägg till person")
+        print("5. Ta bort person")
+        print("6. Sök person")
+        print("7. Redigera person")
+        print("8. Återgå till huvudmeny")
+        menu_input = input_int_in_range(
+            "Välj ett meny alternativ: ", 1, 8, errortext)
         if menu_input == 1:
-            klasslista=convert_file_to_list(filename)
+            klasslista = menu_read_file()
         elif menu_input == 2:
-            print(json.dumps(klasslista))
+            menu_save_file(klasslista)
         elif menu_input == 3:
-            add_person_test(klasslista)
+            print(json.dumps(klasslista))
         elif menu_input == 4:
-            pass
+            add_person_test(klasslista)
         elif menu_input == 5:
             pass
         elif menu_input == 6:
+            print(search_person_list(klasslista))
+        elif menu_input == 7:
+            pass
+        elif menu_input == 8:
             break
 
-#funktin  för att :
+
+def menu_read_file() -> list:
+    errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
+    filename = "./lab2/labb2_personer_vt22.csv"
+    returnlista = []
+    while True:
+        print(encapsulate(" Filhantering - läs in filer "))
+        print("Välj ett av alternativen listade nedan.")
+        print("1. Läs in Orginal CSV filen.")
+        print("2. Läs in sparad CSV fil.")
+        print("3. Läs in sparad json fil.")
+        print("4. Återgå till föregående meny.")
+        menu_input = input_int_in_range(
+            "Välj ett meny alternativ: ", 1, 4, errortext)
+        if menu_input == 1:
+            returnlista = convert_file_to_list(filename)
+        elif menu_input == 2:
+            pass
+        elif menu_input == 3:
+            pass
+        elif menu_input == 4:
+            break
+    return returnlista
+
+
+def menu_save_file(peoplelist: list) -> None:
+    errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
+    filename = "./lab2/labb2_personer_vt22.csv"
+    returnlista = []
+    while True:
+        print(encapsulate(" Filhantering - spara filer "))
+        print("Välj ett av alternativen listade nedan.")
+        print("1. Spara listan som en CSV fil.")
+        print("2. Spara listan som en JSON fil.")
+        print("3. Återgå till föregående meny.")
+        menu_input = input_int_in_range(
+            "Välj ett meny alternativ: ", 1, 3, errortext)
+        if menu_input == 1:
+            pass
+        elif menu_input == 2:
+            pass
+        elif menu_input == 3:
+            break
+
+
+# funktin  för att :
 # 1 visa listan i bättre format
 # 2 söka i listan
 # 3 läsa in från json
