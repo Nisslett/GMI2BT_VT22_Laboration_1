@@ -37,7 +37,6 @@ def menu() -> None:
         elif menu_input == 8:
             break
 
-
 def menu_read_file() -> list:
     errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
     filename = "./lab2/labb2_personer_vt22.csv"
@@ -86,6 +85,5 @@ def menu_save_file(peoplelist: list) -> None:
 # 1 visa listan i bättre format
 # 2 söka i listan
 # 3 läsa in från json
-# 4 alternativt sorta listan
-# 5 lägg till ett alternativ för att redigera en användare
-# 6 undermenyer för att bättre organisera alternativen
+# 4 lägg till ett alternativ för att redigera en användare
+# 5 undermenyer för att bättre organisera alternativen

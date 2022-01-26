@@ -1,4 +1,4 @@
-#Tänkte att denna fil kan innehålla metoder/funktioner som alla filer kan använda
+# This file contains methods and functions which can be used accross all files.
 
 def input_int(inputtext:str,errortext:str="Error! Är inte ett heltal, Försök igen!")-> int:
     """Returns a integer, This method propmts the user to input a integer,

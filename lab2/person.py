@@ -20,7 +20,7 @@ class Person:
                 "efternamn": self.surname,
                 "epost": self.email}
 
-    def nice_string(self) -> str:
+    def __str__(self) -> str:
         """returns a nice string of person to print"""
         ret_str = "Person: användarnamn: " + self.username,
         ret_str += ", förnamn: " + self.firstname
