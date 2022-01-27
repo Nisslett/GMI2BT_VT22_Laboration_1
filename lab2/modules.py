@@ -3,27 +3,27 @@ import json
 from lab2.person import Person
 from common import encapsulate, input_int_in_range
 
-from itsdangerous import encoding
+# from itsdangerous import encoding
 
 from common import input_not_empty
 
 
-def convert_file_to_list(filename: str):
-    """This function converts the csv-file
-    to a list in order to work with the data"""
-    people_list = []
-    with open(filename, encoding='utf-8-sig') as csvfile:
-        reader = csv.reader(csvfile, delimiter=";")
-        print(reader)
-        key = []
-        for items in reader:
-            if key == []:
-                key = items
-            person_dict = {}
-            for i in range(len(items)):
-                person_dict[key[i]] = items[i]
-            people_list.append(person_dict)
-    return people_list
+# def convert_file_to_list(filename: str):
+#     """This function converts the csv-file
+#     to a list in order to work with the data"""
+#     people_list = []
+#     with open(filename, encoding='utf-8-sig') as csvfile:
+#         reader = csv.reader(csvfile, delimiter=";")
+#         print(reader)
+#         key = []
+#         for items in reader:
+#             if key == []:
+#                 key = items
+#             person_dict = {}
+#             for i in range(len(items)):
+#                 person_dict[key[i]] = items[i]
+#             people_list.append(person_dict)
+#     return people_list
 
 
 def add_person(person_list):
@@ -43,7 +43,7 @@ def add_person_test(person_list):
     person_list.append(person)
 
 
-def search_person_list(personlist: list):
+def search_person_list(personlist: list[Person]):
     keys: list[str] = Person.keys()
     # menu för attribut ,nr1 är alla atributer
     print(encapsulate("Söknings meny"))
@@ -61,21 +61,25 @@ def search_person_list(personlist: list):
     search_text: str = input("Skriv in den text du vill söka på: ")
     result_list: list = []
     for person in personlist:
+        pers_dict=person.to_dictionary()
         for attribute in chosen_search_attribute:
             #try:
-                if person[attribute].lower().find(search_text.lower())!=-1:
+                if pers_dict[attribute].lower().find(search_text.lower()) != -1:
                     result_list.append(person)
                     break
             #except KeyError:
                 # Raden nedan användes under utveckling för manuell debugging
-                #print(f"key not found {attribute} i {person}")
-                
+                #print(f"key not found {attribute} i {person}")          
     return result_list
+
+#edit
+#edit->chose-> search
 
 
 def choose_person(person_lista:list) -> Person:
     #anropas söknings funktionen/metoden
     result_list = search_person_list(person_lista)
+    
     for i in range(len(result_list)):
         print(f"{i+1}. {result_list[i]}")
     print(f"{len(result_list)+1}. Ångra och avsluta funktion")
@@ -83,10 +87,10 @@ def choose_person(person_lista:list) -> Person:
     if choice == (len(result_list)+1):
         return None
     else:
-        return person_lista[choice -1]
+        return result_list[choice -1]
     #får tillbaka en lista 
     #om listan är större än 10 kommer man tillbaka till sökfunktionen
-    #om under 10 välja vilen du vill radera
+    #om under 10 välja vilen du vill radera eller redigera
     #om 1 reda pseronen
 
 
@@ -94,7 +98,9 @@ def delete_person(person_lista:list):
     print(encapsulate("Radera en person"))
     print(encapsulate("Sök efter den person du vill radera"))
     person:Person = choose_person(person_lista)
-    if per
+    if person==None:
+        print("Avbryter")
+        return
     while True: 
         choice = input(f"Vill du radera {person}? Y/N").upper()
         if choice == "Y":
@@ -111,7 +117,10 @@ def edit_person(person_lista:list):
     print(encapsulate("Sök efter den person du vill redigera"))
     #choose_person()
     person:Person=choose_person(person_lista)
-    keys=person.keys()
+    if person==None:
+        print("Avbryter")
+        return
+    keys=Person.keys()
     pdict=person.to_dictionary()
     choice=0
     while True:
@@ -124,7 +133,7 @@ def edit_person(person_lista:list):
             break
         else:
             #redigera en attribut av personen
-            pdict[keys[choice-1]]=input_not_empty(f"Redigera {keys[choice-1]}:\"pdict[keys[i]]\":")
+            pdict[keys[choice-1]]=input_not_empty(f"Redigera {keys[choice-1]}:\"{pdict[keys[i]]}\":")
     if choice==len(keys)+1:
         #spara person
         index=person_lista.index(person)
@@ -133,3 +142,10 @@ def edit_person(person_lista:list):
         print(f"Ersatte\n{person}\nmed\n{newperson}")
     else:
         print("Avslutar och spara INTE dina ändringar!")
+
+
+def print_list(person_lista:list[Person]):
+    keys=Person.keys()
+    print(keys[0].ljust(15) + keys[1].ljust(15) + keys[2].ljust(30) + keys[3].ljust(16))
+    for person in person_lista:
+        print(person.username.ljust(15) + person.firstname.ljust(15) + person.surname.ljust(30) + person.email.ljust(16))

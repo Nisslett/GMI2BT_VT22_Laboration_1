@@ -7,4 +7,4 @@
 !.gitignore
 #file types
 !*.py
-!*.csv
+!labb2_personer_vt22.csv

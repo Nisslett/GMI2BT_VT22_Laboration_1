@@ -1,6 +1,8 @@
+#if __name__ == "__main__":
 from common import input_int_in_range, encapsulate
-from lab2.modules import add_person_test, convert_file_to_list,search_person_list
+from lab2.modules import add_person_test,search_person_list,delete_person,edit_person,print_list
 import json
+from lab2.files import CSVFile,JsonFile
 
 
 def menu() -> None:
@@ -13,11 +15,12 @@ def menu() -> None:
         print("1. Läs in fil, meny")
         print("2. Spara fil, meny")
         print("3. Visa JSON-data")
-        print("4. Lägg till person")
-        print("5. Ta bort person")
-        print("6. Sök person")
-        print("7. Redigera person")
-        print("8. Återgå till huvudmeny")
+        print("4. Visa Lista")
+        print("5. Lägg till person")
+        print("6. Ta bort person")
+        print("7. Sök person")
+        print("8. Redigera person")
+        print("9. Återgå till huvudmeny")
         menu_input = input_int_in_range(
             "Välj ett meny alternativ: ", 1, 8, errortext)
         if menu_input == 1:
@@ -27,19 +30,22 @@ def menu() -> None:
         elif menu_input == 3:
             print(json.dumps(klasslista))
         elif menu_input == 4:
-            add_person_test(klasslista)
+            print_list(klasslista)
         elif menu_input == 5:
-            pass
+            add_person_test(klasslista)
         elif menu_input == 6:
-            print(search_person_list(klasslista))
+            delete_person(klasslista)
         elif menu_input == 7:
-            pass
+            print_list(search_person_list(klasslista))
         elif menu_input == 8:
+            edit_person(klasslista)
+        elif menu_input == 9:
             break
+
 
 def menu_read_file() -> list:
     errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
-    filename = "./lab2/labb2_personer_vt22.csv"
+    filename:str = "labb2_personer_vt22.csv"
     returnlista = []
     while True:
         print(encapsulate(" Filhantering - läs in filer "))
@@ -51,11 +57,11 @@ def menu_read_file() -> list:
         menu_input = input_int_in_range(
             "Välj ett meny alternativ: ", 1, 4, errortext)
         if menu_input == 1:
-            returnlista = convert_file_to_list(filename)
+            returnlista = CSVFile(filename,"utf-8-sig").load_person_list()
         elif menu_input == 2:
-            pass
+            returnlista = CSVFile().load_person_list()
         elif menu_input == 3:
-            pass
+            returnlista = JsonFile().load_person_list()
         elif menu_input == 4:
             break
     return returnlista
@@ -74,9 +80,9 @@ def menu_save_file(peoplelist: list) -> None:
         menu_input = input_int_in_range(
             "Välj ett meny alternativ: ", 1, 3, errortext)
         if menu_input == 1:
-            pass
+            CSVFile().save_person_list(peoplelist)
         elif menu_input == 2:
-            pass
+            JsonFile().save_person_list(peoplelist)
         elif menu_input == 3:
             break
 
