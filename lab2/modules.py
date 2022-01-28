@@ -1,27 +1,12 @@
 from lab2.person import Person
 from common import encapsulate, input_int_in_range
-
-# from itsdangerous import encoding
-
 from common import input_not_empty
 
-
-
-#def add_person(person_list):
-#    user_name_input = input_not_empty('Användarnamn: ')
-#    firstname_input = input_not_empty('Förnamn: ')
-#    lastname_input = input_not_empty('Efternamn: ')
-#    email_input = input_not_empty('E-mail: ')
-#    person_list.append({'Användarnamn': user_name_input, 'Förnamn': firstname_input,
-#                       'Efternamn': lastname_input, 'E-mail': email_input})
-
-
-def add_person_test(person_list):
+def add_person(person_list):
     person = {}
     for key in Person.keys():
         person[key] = input_not_empty(f"Skriv in {key.title()}: ")
-    person_list.append(person)
-
+    person_list.append(Person(person))
 
 def search_person_list(personlist: list[Person]):
     keys: list[str] = Person.keys()

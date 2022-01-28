@@ -6,9 +6,6 @@ class Person:
         self.firstname = fname
         self.surname = sname
         self.email = email
-        # telefon nummer
-        # adress
-        #
 
 
     def __init__(self, person_dict: dict) -> None:
@@ -26,7 +23,7 @@ class Person:
 
 
     def __str__(self) -> str:
-        return self.username+", "+ self.firstname+", "+ self.surname + ", " + self.email
+        return self.username + ", " + self.firstname + ", " + self.surname + ", " + self.email
 
     @staticmethod
     def keys() -> tuple[str]:

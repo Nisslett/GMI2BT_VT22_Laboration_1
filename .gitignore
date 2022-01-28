@@ -8,3 +8,5 @@
 #file types
 !*.py
 !labb2_personer_vt22.csv
+!labb2_personer.csv
+!labb2_personer.json

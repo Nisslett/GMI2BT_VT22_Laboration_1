@@ -3,7 +3,6 @@ from lab1.menu import menu as lab1_menu
 from lab2.menu import menu as lab2_menu
 from common import repeat_string, encapsulate, input_int_in_range
 
-
 def menu() -> None:
     """Main Menu"""
     errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
