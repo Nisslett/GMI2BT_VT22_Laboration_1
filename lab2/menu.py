@@ -22,13 +22,13 @@ def menu() -> None:
         print("8. Redigera person")
         print("9. Återgå till huvudmeny")
         menu_input = input_int_in_range(
-            "Välj ett meny alternativ: ", 1, 8, errortext)
+            "Välj ett meny alternativ: ", 1, 9, errortext)
         if menu_input == 1:
             klasslista = menu_read_file()
         elif menu_input == 2:
             menu_save_file(klasslista)
         elif menu_input == 3:
-            print(json.dumps(klasslista))
+            print(JsonFile.json_string(klasslista))
         elif menu_input == 4:
             print_list(klasslista)
         elif menu_input == 5:
@@ -56,14 +56,17 @@ def menu_read_file() -> list:
         print("4. Återgå till föregående meny.")
         menu_input = input_int_in_range(
             "Välj ett meny alternativ: ", 1, 4, errortext)
-        if menu_input == 1:
-            returnlista = CSVFile(filename,"utf-8-sig").load_person_list()
-        elif menu_input == 2:
-            returnlista = CSVFile().load_person_list()
-        elif menu_input == 3:
-            returnlista = JsonFile().load_person_list()
-        elif menu_input == 4:
-            break
+        try:
+            if menu_input == 1:
+                returnlista = CSVFile(filename,"utf-8-sig").load_person_list()
+            elif menu_input == 2:
+                returnlista = CSVFile().load_person_list()
+            elif menu_input == 3:
+                returnlista = JsonFile().load_person_list()
+            elif menu_input == 4:
+                break
+        except FileNotFoundError:
+            print("Error: File not found! Try again!")
     return returnlista
 
 

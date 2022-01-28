@@ -28,9 +28,6 @@ class Person:
     def __str__(self) -> str:
         return self.username+", "+ self.firstname+", "+ self.surname + ", " + self.email
 
-
+    @staticmethod
     def keys() -> tuple[str]:
-        return ("användarnamn",
-                "förnamn",
-                "efternamn",
-                "epost")
+        return ("användarnamn","förnamn","efternamn","epost")
