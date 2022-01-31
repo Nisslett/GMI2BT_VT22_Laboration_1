@@ -2,6 +2,8 @@ import json
 import csv
 from lab2.person import Person
 
+# This file contains classes and files relating to file-operations used within lab 2
+
 class BaseFile:
     def __init__(self, filename:str, encoding:str = "utf-8", path="./lab2/") -> None:
         self.filename = filename

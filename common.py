@@ -13,6 +13,8 @@ def input_int(inputtext:str, errortext:str = "Error! Är inte ett heltal, Förs�
     return input_tmp
 
 def input_int_in_range(inputtext:str, min:int, max:int, errortext:str = "Error! Är inte eller heltal eller är inte i spannet!") -> int:
+    """This function propts the ser for input and repeats
+    untill a integer that is in the specified range is provided."""
     choice:int = 0
     while True:
         choice = input_int(inputtext,errortext)
@@ -23,9 +25,11 @@ def input_int_in_range(inputtext:str, min:int, max:int, errortext:str = "Error! 
     return choice
 
 def repeat_string(character:str, repeat:int = 60):
+    """This function will repeat the provided string, by default 60 times"""
     return character * repeat
 
 def encapsulate(text:str, fill_char:str = "-", linelength:int = 60):
+    """This function will enclose the provided string with \"-\", in a span of 60 """
     fillspace:int = linelength - len(text)
     if fillspace <= 0:
         return text
@@ -36,6 +40,7 @@ def encapsulate(text:str, fill_char:str = "-", linelength:int = 60):
         return fill_section + text + fill_section
     
 def input_not_empty(text):
+    """This function ask the user for input and loop until said input is not an empty string"""
     while True:
         input_str = input(text)
         if len(input_str.strip()) > 0:

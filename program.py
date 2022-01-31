@@ -1,9 +1,5 @@
 from menu import menu
 
-#importera modules.py filen
-
-#anropa funktionera från modules.py
-
 #log startade 19/1 2022 09:00 -> 10:00
 #log startade 19/1 2022 13:10 -> 14:00
 #log startade 20/1 2022 13:15 -> 14:00
@@ -21,6 +17,6 @@ from menu import menu
 
 
 #Edvin
-
-
 menu()
+# Kallar på main-menyn och startar därmed programmet
+

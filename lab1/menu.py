@@ -1,24 +1,18 @@
 from lab1.modules import choose_your_own_divisiable_numbers,guess_a_number
 from common import input_int_in_range
 
+# This file contains the sub-menu for lab 1
+
 def menu() -> None:
     """Menu for Laboration 1"""
-    #en meny som användaren ska välja mellan 
-    #de två funktinoerna i labb 1
-    #gissnings leken och dividerabara nummer funktionen
-    #eller att eller att gå tillbaka.
-    #typ så här 
-    # 1.Divisable numbers
-    # 2.Number Guessing Game
-    # 3.Back / Return , or similar
-    errortext="\nFelaktig inmatning, välj ett av ovanstående alternativ."
+    errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
     while True:
         print("\n---- Laboration 1 ----\n")
         print("Välj ett av alternativen listade nedan.")
         print("1. Dividerbara nummer")
         print("2. Gissa numret!")
         print("3. Återgå till huvudmeny")
-        menu_input=input_int_in_range("Välj ett meny alternativ: ",1,3,errortext)
+        menu_input = input_int_in_range("Välj ett meny alternativ: ", 1, 3, errortext)
         if menu_input == 1:
             choose_your_own_divisiable_numbers()
             

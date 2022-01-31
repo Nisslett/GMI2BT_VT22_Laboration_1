@@ -3,10 +3,10 @@
 #the following whilelists things to NOT ignore
 !lab1/
 !lab2/
-#make sure tht .gitignore file is not ignored
+#make sure that .gitignore file is not ignored
 !.gitignore
 #file types
 !*.py
 !labb2_personer_vt22.csv
-!labb2_personer.csv
-!labb2_personer.json
+#!labb2_personer.csv
+#!labb2_personer.json

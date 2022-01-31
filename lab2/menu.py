@@ -1,9 +1,10 @@
-#if __name__ == "__main__":
+
 from common import input_int_in_range, encapsulate
 from lab2.modules import add_person,search_person_list,delete_person,edit_person,print_list
 import json
 from lab2.files import CSVFile,JsonFile
 
+# This file contains the sub-menu for lab 2, along with 
 
 def menu() -> None:
     """Menu Laboration 2"""
@@ -43,6 +44,7 @@ def menu() -> None:
             break
 
 def menu_read_file() -> list:
+    """Submenu: Load File Menu"""
     errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
     filename:str = "labb2_personer_vt22.csv"
     returnlista = []
@@ -72,8 +74,9 @@ def menu_read_file() -> list:
     return returnlista
 
 def menu_save_file(peoplelist: list) -> None:
+    """Submenu: Save File Menu"""
     errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
-    textsparad= "\nListan är sparad!"
+    textsparad = "\nListan är sparad!"
     while True:
         print(encapsulate(" Filhantering - spara filer "))
         print("Välj ett av alternativen listade nedan.")

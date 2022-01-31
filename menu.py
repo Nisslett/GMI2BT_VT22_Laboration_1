@@ -7,7 +7,7 @@ def menu() -> None:
     """Main Menu"""
     errortext = "\nFelaktig inmatning, välj ett av ovanstående alternativ."
     while True:
-        print("\n"+repeat_string("-"))
+        print("\n" + repeat_string("-"))
         print("\nVälkommen till vår redovisning av labb 1 & 2\n")
         print("Nils Borberg (h19nilbr) och Edvin Owetz (h20edvow)\n")
         print(encapsulate(" Huvudmeny "))
@@ -23,3 +23,7 @@ def menu() -> None:
         
         elif menu_input == 3:
             break
+
+#this will only be run if this file is run
+if __name__ == "__main__":
+    menu()
